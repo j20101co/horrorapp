@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use DateTime;
+use Illuminate\Support\Facades\Hash;
 
 class AdminSeeder extends Seeder
 {
@@ -17,9 +18,9 @@ class AdminSeeder extends Seeder
     public function run()
     {
 	    DB::table('admins')->insert([
-		    'username' => '管理者だよ',
-		    'mail' => 'fdjafdsfjan@fa.co.jp',
-		    'password' => 'fadfnai',
+		    'name' => '管理者だよ',
+		    'email' => 'fdjafdsfjan@fa.co.jp',
+		    'password' => Hash::make('fadfnai'),
 	    ]);
     }
 }
