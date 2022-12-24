@@ -22,7 +22,7 @@
         @foreach($contents as $content)
         <div class='content'>
           <h3 class='title'>
-            <a href="/contents/{{ $content->id }}">{{ $content->title }}</a>
+            <a href="/contents/detail/{{ $content->id }}">{{ $content->title }}</a>
           </h3>
 	      </div>
         @endforeach

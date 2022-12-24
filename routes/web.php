@@ -33,6 +33,7 @@ Route::get('/my_page', [MypageController::class, 'mypage']);
 Route::post('/my_page', [MypageController::class, 'my_page_update']);
 
 Route::get('/contents', [ContentController::class, 'content']);
+Route::get('/contents/detail/{content}', [ContentController::class, 'show']);
 Route::get('/contents/{content}', [ContentController::class, 'create']);
 
 Route::get('/dashboard', function () {

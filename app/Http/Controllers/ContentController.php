@@ -19,5 +19,9 @@ class ContentController extends Controller
 		//dd($content);
 		return view('posts/create')->with(['content' => $content, 'auth' => $auth ]);
 	}
+	
+	public function show(Content $content){
+		return view('contents/show')->with(['content' => $content]);
+	}
 
 }
