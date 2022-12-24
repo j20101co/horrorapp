@@ -13,9 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('review_user', function (Blueprint $table) {
-            $table->foreignId('user_id')->constrained();
-            $table->foreignId('review_id')->constrained();
+        Schema::table('reviews', function (Blueprint $table) {
+            $table->foreignId("category_id")->constrained();
         });
     }
 
@@ -26,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('review_user');
+        Schema::table('reviews', function (Blueprint $table) {
+            //
+        });
     }
 };

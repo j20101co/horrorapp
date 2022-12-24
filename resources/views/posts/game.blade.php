@@ -7,19 +7,12 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-      <h1>投稿一覧</h1>
-      @foreach($categories as $category)
-        <a href='/reviews/categories/{{ $category->id }}'>{{ $category->name }}</a>
-      @endforeach
-      <br>
-      <br>
-      <a href='/contents'>投稿作成</a>
+      <h1>ゲーム投稿一覧</h1>
+      <a href='/reviews/create'>投稿作成</a>
       <div class='posts'>
         @foreach($reviews as $review)
         <div class='post'>
-          <h2 class='title'>
-            <a href="/reviews/{{ $review->id }}">{{ $review->title }}</a>
-          </h2>
+          <h2 class='title'>{{ $review->title }}</h2>
           <p class='body'>{{ $review->body }}</p>
           <form action="/reviews/{{ $review->id }}" id="form_{{ $review->id }}" method="post">
             @csrf

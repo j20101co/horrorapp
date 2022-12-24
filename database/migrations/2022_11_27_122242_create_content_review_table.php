@@ -13,13 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('contents', function (Blueprint $table) {
-            $table->id();
-	    $table->string('title');
-	    $table->integer('category_id');
-	    $table->string('image_path');
-            $table->timestamps();
-	    $table->softDeletes();
+        Schema::create('content_review', function (Blueprint $table) {
+	    $table->foreignId('content_id')->constrained();
+	    $table->foreignId('review_id')->constrained();
         });
     }
 
@@ -30,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contents');
+        Schema::dropIfExists('content_review');
     }
 };
