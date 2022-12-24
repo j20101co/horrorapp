@@ -18,7 +18,7 @@ class Review_UserSeeder extends Seeder
     {
 	    DB::table('review_user')->insert([
 		    'user_id' => 1,
-		    'review_id' => 1,
+		    'review_id' => 3
 	    ]);
     }
 }

@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('content_user', function (Blueprint $table) {
-            $table->integer('user_id');
-            $table->integer('content_id');
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('content_id')->constrained();
         });
     }
 

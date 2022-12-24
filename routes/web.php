@@ -2,6 +2,11 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\MypageController;
+use App\Http\Controllers\ContentController;
+use App\Http\Controllers\CategoryController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -12,11 +17,23 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+*/ 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/reviews/content', [ContentController::class, 'content']);
+Route::get('/reviews', [ReviewController::class, 'index']);
+Route::post('/reviews', [ReviewController::class, 'store']);
+Route::delete('/reviews/{review}', [ReviewController::class, 'delete']);
+Route::get('/reviews/categories/{category}', [CategoryController::class, 'index']);
+Route::get('/reviews/{review}', [ReviewController::class ,'show']);
+Route::get('/reviews/{review}/edit', [ReviewController::class, 'edit']);
+Route::post('/reviews/{review}', [ReviewController::class, 'update']);
+
+Route::get('/my_page', [MypageController::class, 'mypage']);
+Route::post('/my_page', [MypageController::class, 'my_page_update']);
+
+Route::get('/contents', [ContentController::class, 'content']);
+Route::get('/contents/{content}', [ContentController::class, 'create']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
